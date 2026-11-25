@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para Teresita 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--noche:#2a2760;--oro:#ffc14d;--rosa:#f36c8c;--lila:#f5f1ff;--tinta:#1d1b45}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--lila);color:var(--tinta);line-height:1.6;font-size:1.05rem}
+h1,h2{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height:1.15}
+:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
+
+/* Pantalla de regalo */
+#regalo{position:fixed;inset:0;z-index:10;background:var(--noche);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;text-align:center;padding:2rem;transition:transform .9s cubic-bezier(.7,0,.2,1)}
+#regalo.abierto{transform:translateY(-100%)}
+#regalo h1{font-size:clamp(2rem,9vw,3.4rem)}
+#regalo p{opacity:.8}
+.caja{font-size:5.5rem;background:none;border:0;cursor:pointer;animation:latido 1.8s ease-in-out infinite}
+@keyframes latido{50%{transform:scale(1.12) rotate(-4deg)}}
+.btn{font:600 1.05rem Outfit,sans-serif;background:var(--oro);color:var(--tinta);border:0;border-radius:99px;padding:.85rem 2rem;cursor:pointer}
+
+/* Contenido */
+main{max-width:34rem;margin:0 auto;padding:0 1.4rem 4rem}
+.portada{min-height:92svh;display:flex;flex-direction:column;justify-content:center;padding-top:2rem}
+.portada h2{font-size:clamp(2.6rem,13vw,4.6rem);color:var(--noche)}
+.portada h2 em{font-style:normal;color:var(--rosa)}
+.portada p{margin-top:1.2rem;font-size:1.15rem}
+.carta{background:#fff;border-radius:1.2rem;padding:1.8rem 1.6rem;box-shadow:0 10px 30px rgba(42,39,96,.12)}
+.carta p+p{margin-top:1rem}
+.firma{font-family:'Young Serif',serif;margin-top:1.4rem;color:var(--rosa)}
+h3{font-family:'Young Serif',serif;font-weight:400;font-size:1.7rem;margin:3.5rem 0 1.2rem}
+.recuerdo{border-left:4px solid var(--oro);padding:.2rem 0 .2rem 1.1rem;margin-bottom:1.6rem}
+.recuerdo img{width:100%;border-radius:.8rem;margin-bottom:.7rem;display:block}
+.recuerdo b{display:block;font-family:'Young Serif',serif;font-weight:400;font-size:1.15rem}
+.final{text-align:center;margin-top:4rem}
+.final h2{font-size:clamp(2rem,10vw,3.2rem);color:var(--noche)}
+#musica{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:5;border:0;border-radius:99px;background:var(--noche);color:#fff;padding:.7rem 1rem;font:600 .95rem Outfit,sans-serif;cursor:pointer;display:none}
+.frases{display:grid;gap:1.6rem;margin:0 0 1rem}
+.frases p{font-family:'Young Serif',Georgia,serif;font-size:1.25rem;line-height:1.35;color:var(--noche);text-align:center;padding:0 .4rem}
+.frases p:nth-child(even){color:var(--rosa)}
+.acciones{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+a.btn{display:inline-block;text-decoration:none}
+.btn.sec{background:var(--noche);color:#fff}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:20}
+@media (prefers-reduced-motion:reduce){.caja{animation:none}#regalo{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<section id="regalo">
+  <button class="caja" id="caja" aria-label="Abrir regalo">🎁</button>
+  <h1>Teresita, tengo algo para usted</h1>
+  <p>Es para su día.</p>
+  <button class="btn" id="abrir">Abrir mi regalo</button>
+</section>
+
+<main>
+  <section class="portada">
+    <h2>Feliz cumpleaños, <em>Teresita</em></h2>
+    <p>Hoy el día es suyo, y yo quería hacerle algo con mis propias manos.</p>
+  </section>
+
+  <!-- EDITA ESTE TEXTO: lo más importante de toda la página -->
+  <section class="carta">
+    <p>Teresita, llevamos muchos años de amistad y no hay una sola cosa que cambiaría de ellos.</p>
+    <p>Gracias por estar en los días buenos y, sobre todo, en los difíciles. Gracias por su forma de escuchar y por su risa.</p>
+    <p>Quería decirte, con palabras que a veces me cuesta decir en persona, lo importante que es para mí.</p>
+    <p class="firma">Con cariño, Kevin Rogel</p>
+  </section>
+
+  <h3>Cosas que no se me olvidan</h3>
+  <!-- EDITA: cambia el texto y agrega fotos en la carpeta fotos/ (1.jpg, 2.jpg, 3.jpg). Si la foto no existe, se oculta sola. -->
+  <div class="recuerdo"><img src="fotos/1.jpg" alt="" onerror="this.remove()"><b>Cuando nos conocimos</b>Nos conocimos en el trabajo, y desde la primera vez que la vi supe que era una gran persona. Con el tiempo usted tomó otro camino y yo sigo en el mismo lugar, pero lo que empezó entre compañeros se quedó para siempre. Los trabajos van y vienen; una amiga como usted, no..</div>
+  <div class="recuerdo"><img src="fotos/2.jpg" alt="" onerror="this.remove()"><b>Todo lo que vivimos</b>Fueron muchos momentos: las risas, los días buenos y también los difíciles. Con el tiempo uno olvida muchas cosas, pero esos recuerdos se quedan conmigo, y me alegra haberlos vivido a su lado.</div>
+  <div class="recuerdo"><img src="fotos/3.jpg" alt="" onerror="this.remove()"><b>Gracias por seguir aquí</b>Gracias por haber sabido convertir lo que vivimos en una amistad que sigue en pie. No es fácil, y es una de las cosas que más valoro de usted.</div>
+
+  <h3>Quiero que sepa que:</h3>
+  <div class="frases">
+    <p>Hay personas que pasan por la vida; usted se quedó en la mía, y eso es un regalo.</p>
+    <p>Su amistad es de esas que no hacen ruido, pero lo sostienen todo.</p>
+    <p>Gracias por los años, por las risas y por no soltarme nunca.</p>
+    <p>Los buenos amigos son la familia que uno escoge, y yo la escogí a usted.</p>
+    <p>Ojalá la vida le devuelva toda la alegría que usted le ha dado a los demás.</p>
+    <p>Que la vida le llene de salud, paz y cosas bonitas.</p>
+    <p>Si pudiera pedir un deseo por usted, sería que siempre se sienta tan querida como hoy.</p>
+  </div>
+
+  <section class="final">
+    <h2>Que este año le devuelva todo lo bueno que usted da</h2>
+    <p style="margin:1rem 0 1.6rem">La quiero mucho, Teresita. Feliz cumpleaños 🎂</p>
+    <div class="acciones"><button class="btn" id="otra">Más confeti</button><a class="btn sec" href="collage.html">Ver nuestro collage</a></div>
+  </section>
+</main>
+
+<button id="musica" aria-pressed="false">🎵 Música</button>
+<audio id="audio" src="musica.mp3" loop preload="none"></audio>
+<canvas id="c"></canvas>
+
+<script>
+const $=id=>document.getElementById(id);
+const cv=$('c'),ctx=cv.getContext('2d');let piezas=[],anim=false;
+const reducido=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function medir(){cv.width=innerWidth;cv.height=innerHeight}
+addEventListener('resize',medir);medir();
+function confeti(){
+  if(reducido)return;
+  const col=['#ffc14d','#f36c8c','#2a2760','#7fd6c2','#fff'];
+  for(let i=0;i<140;i++)piezas.push({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.4,w:6+Math.random()*6,h:10+Math.random()*8,vy:2+Math.random()*3,vx:-1+Math.random()*2,r:Math.random()*6,vr:-.2+Math.random()*.4,c:col[i%col.length]});
+  if(!anim){anim=true;pintar()}
+}
+function pintar(){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  piezas=piezas.filter(p=>p.y<cv.height+30);
+  for(const p of piezas){p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore()}
+  if(piezas.length)requestAnimationFrame(pintar);else anim=false;
+}
+function abrir(){
+  $('regalo').classList.add('abierto');
+  setTimeout(confeti,500);
+  $('musica').style.display='block';
+  $('audio').play().then(()=>{$('musica').setAttribute('aria-pressed','true')}).catch(()=>{});
+}
+$('abrir').onclick=abrir;$('caja').onclick=abrir;$('otra').onclick=confeti;
+$('musica').onclick=()=>{const a=$('audio');if(a.paused){a.play();$('musica').setAttribute('aria-pressed','true')}else{a.pause();$('musica').setAttribute('aria-pressed','false')}};
+</script>
+</body>
+</html>
